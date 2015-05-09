@@ -25,7 +25,7 @@
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
-            ['R', '☁ %s from project ID %n', 'grab'],
+            ['R', '☁%s from project ID %n', 'grab'],
         ],
         url: 'http://technoboy10.tk/'
     };
