@@ -10,6 +10,7 @@
         return {status: 2, msg: 'Ready'};
         } else {
         return {status: 1, msg: 'Battery API not supported - use Firefox!'};
+        }
     };
     
     ext.val = function(){
