@@ -11,19 +11,28 @@
         return {status: 1, msg: 'Gamepad API not supported - use Firefox!'};
         }
     };
-    
+    var helpful = {1:[1,2],2:[3,4]};
     ext.pressed = function(num){return navigator.getGamepads()[0].buttons[num - 1].pressed};
     ext.when_pressed = function(num){return navigator.getGamepads()[0].buttons[num - 1].pressed};
-	
-	  ext.charging = function(){
-	  return battery.charging;
-	  }
+	ext.stick = function(axis, num){
+        if (axis=="up/down"){
+          return navigator.getGamepads()[0].axes[helpful[num][1]] * 100;
+        } else if (axis == "left/right"){
+          return navigator.getGamepads()[0].axes[helpful[num][0]] * 100;
+        } else {
+          return 0;
+        }
+       };
     // Block and block menu descriptions
     var descriptor = {
         blocks: [
+            ['r', '%m.axis axis of joystick %n', 'stick'],
             ['h', 'when button %n pressed', 'when_pressed'],
-            ['b', 'button %n pressed?', 'pressed']
+            ['b', 'button %n pressed?', 'pressed'],
         ],
+        menus: {
+            axis: ['up/down', 'left/right']
+        },
         url: 'http://technoboy10.tk/'
     };
 
