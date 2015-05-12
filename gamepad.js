@@ -1,5 +1,4 @@
 (function(ext) {
-    var gamepad = navigator.getGamepads()[0];
     // Cleanup function when the extension is unloaded
     ext._shutdown = function() {};
 
@@ -13,8 +12,8 @@
         }
     };
     
-    ext.pressed = function(num){return gamepad.buttons[num - 1].pressed};
-    ext.when_pressed = function(num){return gamepad.buttons[num - 1].pressed};
+    ext.pressed = function(num){return navigator.getGamepads()[0].buttons[num - 1].pressed};
+    ext.when_pressed = function(num){return navigator.getGamepads()[0].buttons[num - 1].pressed};
 	
 	  ext.charging = function(){
 	  return battery.charging;
