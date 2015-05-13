@@ -11,7 +11,7 @@
     
     ext.grab = function(url, callback){
 		$.get('http://crossorigin.me/' + url, function(data){
-			callback(data);
+			callback(data[0]);
 		});
 	};
 	
