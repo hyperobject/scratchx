@@ -9,9 +9,9 @@
         return {status: 2, msg: 'Ready'};
     };
     
-    ext.grab = function(url){
-		$.getJSON('http://crossorigin.me/' + url, function(json){
-			callback(json);
+    ext.grab = function(url, callback){
+		$.get('http://crossorigin.me/' + url, function(data){
+			callback(data);
 		});
 	};
 	
@@ -29,5 +29,5 @@
 
 
     // Register the extension
-    ScratchExtensions.register('Cloud Data', descriptor, ext);
+    ScratchExtensions.register('JSON', descriptor, ext);
 })({});
